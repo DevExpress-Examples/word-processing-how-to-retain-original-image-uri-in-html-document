@@ -42,9 +42,9 @@ namespace Retain_Img_Src
 
         private void embedImagesCheck_CheckedChanged(object sender, EventArgs e) {
             if (embedImagesCheck.Checked)
-                lblText.Text = "CustomUriProvider is idle.";
+                lblText.Text = "The text is the GetHtml method's result. The image is embedded. The CustomUriProvider is idle.";
             else
-                lblText.Text = "The CustomUriProvider.CreateImageUri method is called to write the original image uri.";
+                lblText.Text = "The text is the GetHtml method's result. The image is linked. The CustomUriProvider.CreateImageUri method sets the src.";
             ReloadHtml();
         }
 
@@ -52,6 +52,12 @@ namespace Retain_Img_Src
         {
             DocumentPosition pos = richEditControl1.Document.CaretPosition;
             richEditControl1.Document.Images.Insert(pos, DocumentImageSource.FromUri(imageUri, null));
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            richEditControl1.SaveDocument("test.html", DevExpress.XtraRichEdit.DocumentFormat.Html);
+            System.Diagnostics.Process.Start("test.html");
         }
     }
 }

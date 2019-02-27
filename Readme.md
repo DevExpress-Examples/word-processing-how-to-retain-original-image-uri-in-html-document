@@ -7,7 +7,8 @@
 # How to retain the original image URI in an HTML document
 
 
-This example demonstrates how to use the [DocumentImage.Uri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImage.Uri) property to set the image's **src** attribute when a document is saved in HTML format.
+This example demonstrates how to use the [DocumentImage.Uri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImage.Uri) property to set the image's **src** attribute when a document is saved in HTML format. You can switch on the [HtmlDocumentExporterOptions.EmbedImages](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.Export.HtmlDocumentExporterOptions.EmbedImages) option to observe that the custom URI provider is idle for emdedded images.
+
 
 ![](./images/screenshot.png)
 
@@ -20,8 +21,9 @@ API in this example:
 * [IUriProviderService.RegisterProvider](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Office.Services.IUriProviderService.RegisterProvider(DevExpress.Office.Services.IUriProvider)) method
 * [RichEditControl.GetService](https://docs.devexpress.com/WindowsForms/DevExpress.XtraRichEdit.RichEditControl.GetService.overloads) method
 * [DocumentImageSource.FromUri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImageSource.FromUri(System.String-System.ComponentModel.Design.IServiceContainer)) method
-* [SubDocument.Images](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.Images)
-* [SubDocument.GetHtmlText](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.GetHtmlText.overloads)
+* [SubDocument.Images](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.Images) property
+* [SubDocument.GetHtmlText](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.GetHtmlText.overloads) method
+* [HtmlDocumentExporterOptions.EmbedImages](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.Export.HtmlDocumentExporterOptions.EmbedImages) property
 
 **See also:**
 
