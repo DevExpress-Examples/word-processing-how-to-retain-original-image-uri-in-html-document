@@ -7,7 +7,7 @@
 # How to retain original image URI in HTML document
 
 
-This example illustrates how to use the [DocumentImage.Uri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImage.Uri) property to set the image's **src** attribute when a document is saved in HTML format.
+This example demonstrates how to use the [DocumentImage.Uri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImage.Uri) property to set the image's **src** attribute when a document is saved in HTML format.
 
 ![](./images/screenshot.png)
 
