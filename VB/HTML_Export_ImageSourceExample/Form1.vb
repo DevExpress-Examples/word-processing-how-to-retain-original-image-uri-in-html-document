@@ -39,9 +39,9 @@ Namespace Retain_Img_Src
 
 		Private Sub embedImagesCheck_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles embedImagesCheck.CheckedChanged
 			If embedImagesCheck.Checked Then
-				lblText.Text = "CustomUriProvider is idle."
+				lblText.Text = "The text is the GetHtml method's result. The image is embedded. The CustomUriProvider is idle."
 			Else
-				lblText.Text = "The CustomUriProvider.CreateImageUri method is called to write the original image uri."
+				lblText.Text = "The text is the GetHtml method's result. The image is linked. The CustomUriProvider.CreateImageUri method sets the src."
 			End If
 			ReloadHtml()
 		End Sub
@@ -49,6 +49,11 @@ Namespace Retain_Img_Src
 		Private Sub btnInsertImage_Click(ByVal sender As Object, ByVal e As EventArgs)
 			Dim pos As DocumentPosition = richEditControl1.Document.CaretPosition
 			richEditControl1.Document.Images.Insert(pos, DocumentImageSource.FromUri(imageUri, Nothing))
+		End Sub
+
+		Private Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSave.Click
+			richEditControl1.SaveDocument("test.html", DevExpress.XtraRichEdit.DocumentFormat.Html)
+			System.Diagnostics.Process.Start("test.html")
 		End Sub
 	End Class
 End Namespace
