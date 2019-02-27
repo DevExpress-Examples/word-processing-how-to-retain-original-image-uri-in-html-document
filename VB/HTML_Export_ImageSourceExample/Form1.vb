@@ -1,52 +1,54 @@
-﻿#Region "#usings"
-Imports System
-Imports System.Windows.Forms
-Imports DevExpress.Office.Services
+﻿Imports DevExpress.Office.Services
+Imports DevExpress.XtraEditors
 Imports DevExpress.XtraRichEdit.API.Native
-#End Region ' #usings
+Imports System
+Imports System.Net
 
 Namespace Retain_Img_Src
-    Partial Public Class Form1
-        Inherits Form
+	Partial Public Class Form1
+		Inherits XtraForm
 
-        Public Sub New()
-            InitializeComponent()
+		Private imageUri As String = "https://raw.githubusercontent.com/DevExpress-Examples/how-to-retain-original-image-uri-in-html-document-e3189/17.1.3%2B/images/winforms.png"
+		Public Sub New()
+			InitializeComponent()
+			AddHandler richEditControl1.DocumentLoaded, AddressOf richEditControl1_DocumentLoaded
+			richEditControl1.CreateNewDocument()
+			Dim pos As DocumentPosition = richEditControl1.Document.CaretPosition
+			richEditControl1.Document.Images.Insert(pos, DocumentImageSource.FromUri(imageUri, Nothing))
+			embedImagesCheck.EditValue = True
+			AddHandler richEditControl1.ContentChanged, AddressOf richEditControl1_ContentChanged
+		End Sub
 
-            richEditControl1.CreateNewDocument()
-            richEditControl1.Document.Images.Append(DocumentImageSource.FromUri("http://www.devexpress.com/i/pagetitles/xtrarichedit.png", Nothing))
-            embedImagesCheck.EditValue = True
-            AddHandler richEditControl1.ContentChanged, AddressOf richEditControl1_ContentChanged
-        End Sub
+		Private Sub richEditControl1_ContentChanged(ByVal sender As Object, ByVal e As EventArgs)
+			ReloadHtml()
+		End Sub
 
-        Private Sub richEditControl1_ContentChanged(ByVal sender As Object, ByVal e As EventArgs)
-            ReloadHtml()
-        End Sub
+		Private Sub ReloadHtml()
+			Dim exportOptions As New DevExpress.XtraRichEdit.Export.HtmlDocumentExporterOptions()
+			exportOptions.EmbedImages = embedImagesCheck.Checked
+			Dim sText As String = richEditControl1.Document.GetHtmlText(richEditControl1.Document.Range, New CustomUriProvider(), exportOptions)
+			memoEdit1.Text = sText
+		End Sub
 
-        Private Sub ReloadHtml()
-'            #Region "#GetHtmlText"
-            Dim exportOptions As New DevExpress.XtraRichEdit.Export.HtmlDocumentExporterOptions()
-            exportOptions.EmbedImages = embedImagesCheck.Checked
-            Dim sText As String = richEditControl1.Document.GetHtmlText(richEditControl1.Document.Range, New CustomUriProvider(), exportOptions)
-'            #End Region ' #GetHtmlText
-            memoEdit1.Text = sText
-        End Sub
+		Private Sub richEditControl1_DocumentLoaded(ByVal sender As Object, ByVal e As EventArgs)
+			Dim service As IUriProviderService = richEditControl1.GetService(Of IUriProviderService)()
+			If service IsNot Nothing Then
+				service.RegisterProvider(New CustomUriProvider())
+			End If
+		End Sub
 
-        #Region "#documentloaded"
-        Private Sub richEditControl1_DocumentLoaded(ByVal sender As Object, ByVal e As EventArgs) Handles richEditControl1.DocumentLoaded
-            Dim service As IUriProviderService = richEditControl1.GetService(Of IUriProviderService)()
-            If service IsNot Nothing Then
-                service.RegisterProvider(New CustomUriProvider())
-            End If
-        End Sub
-        #End Region ' #documentloaded
+		Private Sub embedImagesCheck_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles embedImagesCheck.CheckedChanged
+			If embedImagesCheck.Checked Then
+				lblText.Text = "CustomUriProvider is idle."
+			Else
+				lblText.Text = "The CustomUriProvider.CreateImageUri method is called to write the original image uri."
+			End If
+			ReloadHtml()
+		End Sub
 
-        Private Sub embedImagesCheck_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles embedImagesCheck.CheckedChanged
-            If embedImagesCheck.Checked Then
-                lblText.Text = "CustomUriProvider is idle."
-            Else
-                lblText.Text = "The CustomUriProvider.CreateImageUri method is called to write the original image uri."
-            End If
-            ReloadHtml()
-        End Sub
-    End Class
+		Private Sub btnInsertImage_Click(ByVal sender As Object, ByVal e As EventArgs)
+			Dim pos As DocumentPosition = richEditControl1.Document.CaretPosition
+			richEditControl1.Document.Images.Insert(pos, DocumentImageSource.FromUri(imageUri, Nothing))
+		End Sub
+	End Class
 End Namespace

@@ -1,11 +1,9 @@
-#region #usings
 using DevExpress.Office.Services;
 using DevExpress.Office.Utils;
 using System;
-#endregion #usings
+
 
 namespace Retain_Img_Src {
-    #region #customuriprovider
     public class CustomUriProvider : IUriProvider {
         public string CreateCssUri(string rootUri, string styleText, string relativeUri) {
             return String.Empty;
@@ -15,5 +13,4 @@ namespace Retain_Img_Src {
             return image.Uri;
         }
     }
-    #endregion #customuriprovider
 }

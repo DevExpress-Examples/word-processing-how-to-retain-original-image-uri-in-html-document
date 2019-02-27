@@ -7,9 +7,22 @@
 # How to retain original image URI in HTML document
 
 
-<p>This example illustrates the use of a <strong>DevExpress.XtraRichEdit.Utils.RichEditImage</strong><strong>.Uri</strong> property to retrieve original location of an image and store it in <strong>src </strong>attribute when a document is saved in HTML format.<br />
-</p>
+This example illustrates how to use the [DocumentImage.Uri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImage.Uri) property to set the image's **src** attribute when a document is saved in HTML format.
 
-<br/>
+![](./images/screenshot.png)
 
+The project implements a custom class with the **IUriProvider** interface and registers it as the **IUriProviderService** provider.
 
+API in this example:
+
+* [IUriProvider](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Office.Services.IUriProvider) interface
+* [IUriProviderService](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Office.Services.IUriProviderService) interface
+* [IUriProviderService.RegisterProvider](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Office.Services.IUriProviderService.RegisterProvider(DevExpress.Office.Services.IUriProvider)) method
+* [RichEditControl.GetService](https://docs.devexpress.com/WindowsForms/DevExpress.XtraRichEdit.RichEditControl.GetService.overloads) method
+* [DocumentImageSource.FromUri](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.DocumentImageSource.FromUri(System.String-System.ComponentModel.Design.IServiceContainer)) method
+* [SubDocument.Images](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.Images)
+* [SubDocument.GetHtmlText](https://docs.devexpress.com/OfficeFileAPI/DevExpress.XtraRichEdit.API.Native.SubDocument.GetHtmlText.overloads)
+
+**See also:**
+
+* [Import and Export](https://docs.devexpress.com/WindowsForms/9333)
