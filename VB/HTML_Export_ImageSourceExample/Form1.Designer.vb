@@ -30,10 +30,10 @@
 			Me.memoEdit1 = New DevExpress.XtraEditors.MemoEdit()
 			Me.simpleButton1 = New DevExpress.XtraEditors.SimpleButton()
 			Me.btnSave = New DevExpress.XtraEditors.SimpleButton()
-			DirectCast(Me.panelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+			CType(Me.panelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
 			Me.panelControl1.SuspendLayout()
-			DirectCast(Me.embedImagesCheck.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-			DirectCast(Me.memoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+			CType(Me.embedImagesCheck.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+			CType(Me.memoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
 			Me.SuspendLayout()
 			' 
 			' richEditControl1
@@ -118,10 +118,10 @@
 			Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 			Me.Name = "Form1"
 			Me.Text = "Retain Original Image Uri"
-			DirectCast(Me.panelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+			CType(Me.panelControl1, System.ComponentModel.ISupportInitialize).EndInit()
 			Me.panelControl1.ResumeLayout(False)
-			DirectCast(Me.embedImagesCheck.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-			DirectCast(Me.memoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+			CType(Me.embedImagesCheck.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+			CType(Me.memoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
 			Me.ResumeLayout(False)
 
 		End Sub
