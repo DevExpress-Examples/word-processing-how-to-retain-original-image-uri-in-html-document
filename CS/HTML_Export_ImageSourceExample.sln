@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML_Export_ImageSourceExample", "HTML_Export_ImageSourceExample\HTML_Export_ImageSourceExample.csproj", "{2B7242BF-8B2B-4BA0-B170-990E97CE779D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTML_Export_ImageSourceExample", "HTML_Export_ImageSourceExample.csproj", "{2B7242BF-8B2B-4BA0-B170-990E97CE779D}"
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"

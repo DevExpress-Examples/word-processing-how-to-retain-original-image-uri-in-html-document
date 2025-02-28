@@ -2,6 +2,7 @@ using DevExpress.Office.Services;
 using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.API.Native;
 using System;
+using System.Diagnostics;
 using System.Net;
 
 namespace Retain_Img_Src
@@ -57,7 +58,12 @@ namespace Retain_Img_Src
         private void btnSave_Click(object sender, EventArgs e)
         {
             richEditControl1.SaveDocument("test.html", DevExpress.XtraRichEdit.DocumentFormat.Html);
-            System.Diagnostics.Process.Start("test.html");
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo("test.html")
+            {
+                UseShellExecute = true
+            };
+            p.Start();
         }
     }
 }

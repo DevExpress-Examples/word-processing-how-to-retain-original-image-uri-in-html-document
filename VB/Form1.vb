@@ -1,8 +1,6 @@
 ﻿Imports DevExpress.Office.Services
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraRichEdit.API.Native
-Imports System
-Imports System.Net
 
 Namespace Retain_Img_Src
 	Partial Public Class Form1
@@ -53,7 +51,11 @@ Namespace Retain_Img_Src
 
 		Private Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSave.Click
 			richEditControl1.SaveDocument("test.html", DevExpress.XtraRichEdit.DocumentFormat.Html)
-			System.Diagnostics.Process.Start("test.html")
+			Dim p As New Process()
+			p.StartInfo = New ProcessStartInfo("test.html") With {
+				.UseShellExecute = True
+			}
+			p.Start()
 		End Sub
 	End Class
 End Namespace
