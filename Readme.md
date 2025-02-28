@@ -15,8 +15,8 @@ The project implements a custom class with the **IUriProvider** interface and re
 
 ## Files to Review
 
-* [CustomUriProvider.cs](./CS/HTML_Export_ImageSourceExample/CustomUriProvider.cs) (VB: [CustomUriProvider.vb](./VB/HTML_Export_ImageSourceExample/CustomUriProvider.vb))
-* [Form1.cs](./CS/HTML_Export_ImageSourceExample/Form1.cs) (VB: [Form1.vb](./VB/HTML_Export_ImageSourceExample/Form1.vb))
+* [CustomUriProvider.cs](./CS/CustomUriProvider.cs) (VB: [CustomUriProvider.vb](./VB/CustomUriProvider.vb))
+* [Form1.cs](./CS/Form1.cs) (VB: [Form1.vb](./VB/Form1.vb))
 
 ## Documentation
 
