@@ -22,7 +22,7 @@ The project implements a custom class with the **IUriProvider** interface and re
 
 * [Import an HTML File into the Rich Text Editor or Export a Document to HTML](https://docs.devexpress.com/WindowsForms/402852/controls-and-libraries/rich-text-editor/html-import-and-export?p=netframework)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-rich-text-editor-retain-original-image-uri-in-html-document&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-rich-text-editor-retain-original-image-uri-in-html-document&~~~was_helpful=no)
 
